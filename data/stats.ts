@@ -1,17 +1,17 @@
 import type { Stat, Feature, TutorialStep } from "@/types";
 
 export const stats: Stat[] = [
-  { value: "13", label: "Driver Active" },
-  { value: "2", label: "WA Group" },
-  { value: "1000+", label: "Order Complete" },
-  { value: "1000+", label: "Members Group" },
+  { value: "52", label: "Driver Active" },
+  { value: "11", label: "WA Group" },
+  { value: "50.000+", label: "Order Complete" },
+  { value: "9000+", label: "Members Group" },
 ];
 
 export const features: Feature[] = [
   {
     title: "Driver Mahasiswa",
     description:
-      "Driver kami 100% mahasiswa UGM, jadi lebih paham wilayah dalam kampus, bonus dapet relasi deh..",
+      "Driver kami 100% mahasiswa UNS, jadi lebih paham wilayah dalam kampus, bonus dapet relasi deh..",
   },
   {
     title: "Aman, Satset, Fleksibel",
@@ -30,10 +30,10 @@ export const tutorialSteps: TutorialStep[] = [
     step: 1,
     title: "Join WA Group",
     description:
-      "Join WA Group komunitas UGM Anjem bareng mahasiswa UGM lainnya dengan",
+      "Join WA Group komunitas UNS Anjem bareng mahasiswa UNS lainnya dengan",
     link: {
       text: "klik disini",
-      url: "http://wa.me/6282123035583?text=Halo%20Min,%20mau%20link%20grup%20Anjem%20UGM%20dong",
+      url: "http://wa.me/6289506606948?text=Halo%20Min,%20mau%20link%20grup%20Anjem%20UNS%20dong",
     },
   },
   {
@@ -57,7 +57,7 @@ export const tutorialSteps: TutorialStep[] = [
 ];
 
 export const driverRequirements: string[] = [
-  "Mahasiswa UGM",
+  "Mahasiswa UNS",
   "Memiliki kendaraan bersurat lengkap",
   "Komitmen dan banyak waktu luang",
 ];

@@ -17,7 +17,7 @@ export default function TutorialSection() {
                 <div className="relative w-full">
                   <Image
                     src="/images/anjem_mockup_iphone.png"
-                    alt="UGM Anjem WhatsApp Mockup"
+                    alt="UNS Anjem WhatsApp Mockup"
                     width={700}
                     height={840}
                     className="w-full h-auto object-contain"

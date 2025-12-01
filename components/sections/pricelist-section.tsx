@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { Cloud, Moon, ChevronLeft, ChevronRight } from "lucide-react";
+import { Cloud, Moon } from "lucide-react";
 import FadeIn from "@/components/fade-in";
 import { usePriceCalculator } from "@/hooks/use-price-calculator";
 import { serviceDescriptions } from "@/data/services";
@@ -21,7 +20,6 @@ interface PricelistSectionProps {
 export default function PricelistSection({
   onImageClick,
 }: PricelistSectionProps) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const {
     serviceType,
     distance,
@@ -33,18 +31,6 @@ export default function PricelistSection({
     toggleEarlyMorning,
     estimatedPrice,
   } = usePriceCalculator();
-
-  const goToPrevious = () => {
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? pricelistImages.length - 1 : prev - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentImageIndex((prev) =>
-      prev === pricelistImages.length - 1 ? 0 : prev + 1
-    );
-  };
 
   return (
     <section
@@ -62,72 +48,54 @@ export default function PricelistSection({
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Pricelist Image Carousel */}
+          {/* Left Side - Pricelist Image with Blur Background */}
           <FadeIn
             direction="left"
             className="relative w-full max-w-md mx-auto lg:mx-0"
           >
-            {/* Main Image */}
             <div className="relative">
+              {/* Blurred Background Images */}
+              <div className="absolute -inset-4 md:-inset-8">
+                {/* Left blur */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-8 w-[85%] aspect-[3/4] opacity-40">
+                  <Image
+                    src="/images/poster_blur.png"
+                    alt=""
+                    fill
+                    className="object-cover rounded-2xl"
+                    aria-hidden="true"
+                  />
+                </div>
+                {/* Right blur */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-8 w-[85%] aspect-[3/4] opacity-40">
+                  <Image
+                    src="/images/poster_blur.png"
+                    alt=""
+                    fill
+                    className="object-cover rounded-2xl"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+
+              {/* Main Image */}
               <button
-                onClick={() => onImageClick(pricelistImages, currentImageIndex)}
-                className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-border shadow-xl hover:shadow-2xl transition-shadow cursor-zoom-in"
+                onClick={() => onImageClick(pricelistImages, 0)}
+                className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden border-2 border-border shadow-2xl hover:shadow-3xl transition-all cursor-zoom-in z-10"
               >
                 <Image
-                  src={pricelistImages[currentImageIndex].src}
-                  alt={pricelistImages[currentImageIndex].alt}
+                  src={pricelistImages[0].src}
+                  alt={pricelistImages[0].alt}
                   fill
                   className="object-cover"
                   priority
                 />
               </button>
-
-              {/* Navigation Arrows */}
-              {pricelistImages.length > 1 && (
-                <>
-                  <button
-                    onClick={goToPrevious}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-2 rounded-full shadow-lg transition-colors"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={goToNext}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-primary p-2 rounded-full shadow-lg transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </>
-              )}
             </div>
 
-            {/* Thumbnail Indicators */}
-            {pricelistImages.length > 1 && (
-              <div className="flex justify-center gap-2 mt-4">
-                {pricelistImages.map((img, index) => (
-                  <button
-                    key={img.id}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`relative w-14 h-18 rounded-lg overflow-hidden border-2 transition-all ${
-                      index === currentImageIndex
-                        ? "border-accent shadow-md"
-                        : "border-border opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover"
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-
             {/* Hint text */}
-            <p className="text-center text-sm text-muted-foreground mt-4">
-              Klik gambar untuk memperbesar • Geser untuk melihat lainnya
+            <p className="text-center text-sm text-muted-foreground mt-6">
+              Klik gambar untuk memperbesar
             </p>
           </FadeIn>
 

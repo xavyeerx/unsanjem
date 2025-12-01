@@ -107,14 +107,19 @@ export default function ServicesSection() {
                         {service.title}
                       </h3>
 
-                      {/* Rating */}
-                      <div className="flex items-center mb-3">
-                        {[...Array(service.rating)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
-                          />
-                        ))}
+                      {/* Rating & Trips */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="flex items-center">
+                          {[...Array(service.rating)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm text-muted-foreground">
+                          +{service.trips} trip done
+                        </span>
                       </div>
 
                       {/* Price */}

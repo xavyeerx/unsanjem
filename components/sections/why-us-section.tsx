@@ -6,10 +6,7 @@ import { stats, features } from "@/data/stats";
 
 export default function WhyUsSection() {
   return (
-    <section
-      id="why-us"
-      className="py-16 md:py-24 bg-background relative -mt-1"
-    >
+    <section id="why-us" className="py-16 md:py-24 bg-background relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Header */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">

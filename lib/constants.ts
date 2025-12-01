@@ -1,9 +1,9 @@
 // External URLs
 export const WHATSAPP_ORDER_URL =
-  "http://wa.me/6282123035583?text=Halo%20Min,%20mau%20link%20grup%20Anjem%20UGM%20dong";
+  "http://wa.me/6289506606948?text=Halo%20Min,%20mau%20link%20grup%20Anjem%20UNS%20dong";
 
 export const DRIVER_REGISTRATION_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfOiP7z21-m6B42Xi2107Zq6mWJwvzFOD2a1uuNjEtfPcOK5g/viewform?usp=send_form";
+  "https://docs.google.com/forms/d/e/1FAIpQLScYtE_jGuboPeuGGW0PfmFyxo3CSzCuCDJIq0AvEOg8Y71UBw/viewform";
 
 export const LOGO_URL = "/images/logo-anjem-putih.png";
 
@@ -12,8 +12,8 @@ export const HERO_BACKGROUND_URL = "/images/background.png";
 // Social Media URLs
 export const SOCIAL_URLS = {
   whatsapp: WHATSAPP_ORDER_URL,
-  instagram: "https://instagram.com/ugm.anjem",
-  tiktok: "https://tiktok.com/@ugm.anjem",
+  instagram: "https://www.instagram.com/uns_anjem?igsh=MTRqdDA5bmd3N3hjZA==",
+  tiktok: "https://www.tiktok.com/@unsanjem?_r=1&_t=ZS-91iIlD9vRNX",
 } as const;
 
 // UI Constants

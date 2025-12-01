@@ -208,7 +208,7 @@ setTimeout(() => setIsLoading(false), 1500); // ← Edit angka ini
 ## 📁 File Structure
 
 ```
-anjemugm-v1/
+anjemuns-v1/
 ├── app/
 │   ├── layout.tsx              ← Integrated Preloader
 │   ├── page.tsx                ← All animations implemented

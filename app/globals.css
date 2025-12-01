@@ -58,40 +58,41 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light theme untuk Anjem UGM dengan primary navy blue #103959 */
+  /* Light theme untuk Anjem UNS dengan primary cyan #39bfdf */
   --background: #ffffff;
   --foreground: #1e1e1e;
-  --card: #f8fafc;
+  --card: #ffffff;
   --card-foreground: #1e1e1e;
   --popover: #ffffff;
   --popover-foreground: #1e1e1e;
-  --primary: #103959;
+  --primary: #39bfdf;
   --primary-foreground: #ffffff;
-  --secondary: #1e5a8a;
+  --secondary: #89dced;
   --secondary-foreground: #ffffff;
   --muted: #f1f5f9;
   --muted-foreground: #8d8d8d;
-  --accent: #103959;
+  --accent: #39bfdf;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
-  --input: #f8fafc;
-  --ring: #103959;
-  --chart-1: #103959;
-  --chart-2: #1e5a8a;
-  --chart-3: #2d7ab8;
+  --input: #ffffff;
+  --ring: #39bfdf;
+  --chart-1: #39bfdf;
+  --chart-2: #89dced;
+  --chart-3: #b0e8f5;
   --chart-4: #8d8d8d;
   --chart-5: #1e1e1e;
   --radius: 0.625rem;
-  --sidebar: #103959;
+  --sidebar: #39bfdf;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #103959;
+  --sidebar-primary: #39bfdf;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1e5a8a;
+  --sidebar-accent: #89dced;
   --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #1e5a8a;
+  --sidebar-border: #89dced;
   --sidebar-ring: #ffffff;
+  --footer-background: #fafafa;
 }
 
 .dark {
@@ -101,32 +102,32 @@
   --card-foreground: #f8fafc;
   --popover: #1b2838;
   --popover-foreground: #f8fafc;
-  --primary: #103959;
+  --primary: #39bfdf;
   --primary-foreground: #ffffff;
-  --secondary: #1e5a8a;
+  --secondary: #89dced;
   --secondary-foreground: #ffffff;
   --muted: #1b2838;
   --muted-foreground: #8d8d8d;
-  --accent: #103959;
+  --accent: #39bfdf;
   --accent-foreground: #ffffff;
   --destructive: #ff6b6b;
   --destructive-foreground: #ffffff;
   --border: #2a3f54;
   --input: #1b2838;
-  --ring: #103959;
-  --chart-1: #103959;
-  --chart-2: #1e5a8a;
+  --ring: #39bfdf;
+  --chart-1: #39bfdf;
+  --chart-2: #89dced;
   --chart-3: #f8fafc;
   --chart-4: #8d8d8d;
   --chart-5: #1e1e1e;
   --sidebar: #1b2838;
   --sidebar-foreground: #f8fafc;
-  --sidebar-primary: #103959;
+  --sidebar-primary: #39bfdf;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #1e5a8a;
+  --sidebar-accent: #89dced;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #2a3f54;
-  --sidebar-ring: #103959;
+  --sidebar-ring: #39bfdf;
 }
 
 @theme inline {

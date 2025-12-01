@@ -28,10 +28,10 @@ export default function Navbar({
           >
             <Image
               src={LOGO_URL}
-              alt="UGM Anjem Logo"
-              width={140}
-              height={56}
-              className="h-9 md:h-10 w-auto object-contain"
+              alt="UNS Anjem Logo"
+              width={200}
+              height={80}
+              className="h-12 md:h-14 w-auto object-contain"
               unoptimized
               priority
             />

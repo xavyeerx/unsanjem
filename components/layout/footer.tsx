@@ -9,7 +9,8 @@ export default function Footer() {
   return (
     <footer
       id="contact-us"
-      className="bg-background py-12 md:py-16 border-t border-border"
+      className="py-12 md:py-16 border-t border-border"
+      style={{ backgroundColor: "#fafafa" }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
         {/* Footer Links Grid */}
@@ -78,7 +79,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-border mt-8 pt-8">
           <p className="text-sm text-muted-foreground text-center">
-            © 2025 UGM Anjem. All rights reserved.
+            © 2025 UNS Anjem. All rights reserved.
           </p>
         </div>
       </div>

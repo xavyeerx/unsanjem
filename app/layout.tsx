@@ -10,9 +10,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UGM Anjem - Antar Jemput & Jastip Mahasiswa UGM",
+  title: "UNS Anjem - Antar Jemput & Jastip Mahasiswa UNS",
   description:
-    "Solusi mobilitas & jastipan terpercaya untuk mahasiswa UGM. Pesan antar jemput dan jastip dengan mudah hanya melalui satu chat.",
+    "Solusi mobilitas & jastipan terpercaya untuk mahasiswa UNS. Pesan antar jemput dan jastip dengan mudah hanya melalui satu chat.",
   icons: {
     icon: [
       {

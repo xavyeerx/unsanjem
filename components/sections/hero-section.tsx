@@ -24,8 +24,14 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Gradient transition to white at bottom */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, rgba(137, 220, 237, 0.3) 40%, rgba(255, 255, 255, 0.7) 70%, #ffffff 100%)",
+        }}
+      />
 
       {/* Animated Background Elements */}
       <FloatingElements />
@@ -39,7 +45,11 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 drop-shadow-lg px-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6 px-4"
+              style={{
+                textShadow:
+                  "0 2px 10px rgba(0,0,0,0.3), 0 4px 20px rgba(0,0,0,0.2)",
+              }}
             >
               <motion.span
                 initial={{ opacity: 0, x: -20 }}
@@ -55,7 +65,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 2.2 }}
                 className="block text-balance"
               >
-                Mahasiswa UGM
+                Mahasiswa UNS
               </motion.span>
             </motion.h1>
 
@@ -64,9 +74,10 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 2.4 }}
-              className="text-base sm:text-lg md:text-xl text-white drop-shadow-md mb-8 md:mb-12 px-4"
+              className="text-base sm:text-lg md:text-xl text-white mb-8 md:mb-12 px-4"
+              style={{ textShadow: "0 2px 8px rgba(0,0,0,0.3)" }}
             >
-              Solusi mobilitas & jastipan terpercaya barisan mahasiswa UGM.
+              Solusi mobilitas & jastipan terpercaya barisan mahasiswa UNS.
               Semua bisa cuma lewat satu chat. #ChatKamiAja
             </motion.p>
 

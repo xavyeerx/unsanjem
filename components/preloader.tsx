@@ -55,12 +55,12 @@ export default function Preloader() {
             >
               <Image
                 src={LOGO_URL}
-                alt="UGM Anjem"
-                width={400}
-                height={160}
+                alt="UNS Anjem"
+                width={600}
+                height={240}
                 priority
                 unoptimized
-                className="w-auto h-20 md:h-32 lg:h-40 object-contain drop-shadow-xl"
+                className="w-auto h-32 md:h-48 lg:h-56 object-contain drop-shadow-xl"
               />
             </motion.div>
 
