@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Cloud, Moon } from "lucide-react";
 import FadeIn from "@/components/fade-in";
 import { usePriceCalculator } from "@/hooks/use-price-calculator";
-import { serviceDescriptions } from "@/data/services";
 import { pricelistImages } from "@/data/pricelist";
 
 interface ImageItem {
@@ -21,11 +20,9 @@ export default function PricelistSection({
   onImageClick,
 }: PricelistSectionProps) {
   const {
-    serviceType,
     distance,
     isRainy,
     isEarlyMorning,
-    setServiceType,
     setDistance,
     toggleRainy,
     toggleEarlyMorning,
@@ -110,61 +107,34 @@ export default function PricelistSection({
               </h4>
             </div>
 
-            {/* Service Selection */}
-            <div className="mb-6">
-              <h4 className="text-sm font-medium text-foreground mb-3">
-                Pilih Layanan
-              </h4>
-              <div className="space-y-2">
-                <label className="flex items-center gap-3 p-4 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
-                  <input
-                    type="radio"
-                    name="service"
-                    value="antar-jemput"
-                    checked={serviceType === "antar-jemput"}
-                    onChange={(e) =>
-                      setServiceType(
-                        e.target.value as "antar-jemput" | "jastip"
-                      )
-                    }
-                    className="w-5 h-5 text-accent focus:ring-accent"
-                  />
-                  <span className="text-foreground">Anjem (Antar Jemput)</span>
-                </label>
-                <label className="flex items-center gap-3 p-4 border border-border rounded-lg cursor-pointer hover:bg-muted transition-colors">
-                  <input
-                    type="radio"
-                    name="service"
-                    value="jastip"
-                    checked={serviceType === "jastip"}
-                    onChange={(e) =>
-                      setServiceType(
-                        e.target.value as "antar-jemput" | "jastip"
-                      )
-                    }
-                    className="w-5 h-5 text-accent focus:ring-accent"
-                  />
-                  <span className="text-foreground">Jastip (Jasa Titip)</span>
-                </label>
-              </div>
-              <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
-                {serviceDescriptions[serviceType]}
+            {/* Service Info */}
+            <div className="mb-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
+              <p className="text-sm text-foreground">
+                Butuh dianter atau dijemput ke kampus? Kamu bisa pesan driver buat antar sampai tujuan kok!
               </p>
             </div>
 
             {/* Distance Input */}
             <div className="mb-6">
               <h4 className="text-sm font-medium text-foreground mb-3">
-                Jarak (Meter)
+                Jarak (KM)
               </h4>
-              <input
-                type="number"
-                value={distance}
-                onChange={(e) => setDistance(e.target.value)}
-                placeholder="0"
-                min="0"
-                className="w-full px-4 py-3 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  value={distance}
+                  onChange={(e) => setDistance(e.target.value)}
+                  placeholder="0"
+                  className="w-full px-4 py-3 pr-14 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all"
+                />
+                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
+                  KM
+                </span>
+              </div>
+              <p className="text-xs text-muted-foreground mt-2">
+                Contoh: 1,5 atau 2.4
+              </p>
             </div>
 
             {/* Optional Conditions */}
@@ -176,10 +146,10 @@ export default function PricelistSection({
                 <button
                   type="button"
                   onClick={toggleRainy}
-                  className={`flex items-center justify-center gap-2 p-4 border rounded-lg transition-colors ${
+                  className={`flex items-center justify-center gap-2 p-4 border rounded-lg transition-all duration-200 ${
                     isRainy
-                      ? "bg-accent text-white border-accent"
-                      : "bg-background text-foreground border-border hover:bg-muted"
+                      ? "bg-accent text-white border-accent shadow-lg scale-[1.02]"
+                      : "bg-background text-foreground border-border hover:bg-muted hover:scale-[1.01]"
                   }`}
                 >
                   <Cloud className="w-5 h-5" />
@@ -188,10 +158,10 @@ export default function PricelistSection({
                 <button
                   type="button"
                   onClick={toggleEarlyMorning}
-                  className={`flex items-center justify-center gap-2 p-4 border rounded-lg transition-colors ${
+                  className={`flex items-center justify-center gap-2 p-4 border rounded-lg transition-all duration-200 ${
                     isEarlyMorning
-                      ? "bg-accent text-white border-accent"
-                      : "bg-background text-foreground border-border hover:bg-muted"
+                      ? "bg-accent text-white border-accent shadow-lg scale-[1.02]"
+                      : "bg-background text-foreground border-border hover:bg-muted hover:scale-[1.01]"
                   }`}
                 >
                   <Moon className="w-5 h-5" />
@@ -203,7 +173,7 @@ export default function PricelistSection({
             </div>
 
             {/* Estimated Price */}
-            <div className="bg-accent rounded-lg p-4 space-y-2 max-w-md">
+            <div className="bg-accent rounded-lg p-4 space-y-2 max-w-md shadow-lg">
               <div>
                 <span className="text-sm text-white/90 font-semibold">
                   Estimasi Biaya
@@ -224,3 +194,4 @@ export default function PricelistSection({
     </section>
   );
 }
+

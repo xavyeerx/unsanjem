@@ -57,7 +57,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.6, delay: 2.0 }}
                 className="block whitespace-nowrap"
               >
-                Antar Jemput & Jastip
+                Antar Jemput
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, x: 20 }}
@@ -77,7 +77,7 @@ export default function HeroSection() {
               className="text-base sm:text-lg md:text-xl text-white mb-8 md:mb-12 px-4"
               style={{ textShadow: "0 2px 8px rgba(0,0,0,0.3)" }}
             >
-              Solusi mobilitas & jastipan terpercaya barisan mahasiswa UNS.
+              Solusi mobilitas terpercaya barisan mahasiswa UNS.
               Semua bisa cuma lewat satu chat. #ChatKamiAja
             </motion.p>
 

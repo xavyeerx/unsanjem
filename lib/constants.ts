@@ -20,9 +20,7 @@ export const SOCIAL_URLS = {
 export const NAV_HEIGHT = 80;
 
 // Price Calculator Constants
-export const PRICE_PER_METER = 2.5; // Rp per meter
 export const MINIMUM_PRICE = 5000;
-export const JASTIP_FEE = 1000;
 export const RAINY_FEE = 2000;
 export const EARLY_MORNING_FEE = 1000;
 

@@ -1,33 +1,48 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import type {
-  ServiceType,
-  PriceCalculatorState,
-  PriceCalculatorResult,
-} from "@/types";
 import {
-  PRICE_PER_METER,
   MINIMUM_PRICE,
-  JASTIP_FEE,
   RAINY_FEE,
   EARLY_MORNING_FEE,
 } from "@/lib/constants";
 
+// Tiered pricing constants
+const PRICE_PER_KM_UNDER_5 = 2500; // Rp 2.5k per km for under 5km
+const PRICE_PER_KM_OVER_5 = 2400;  // Rp 2.4k per km for 5km and above
+const TIER_THRESHOLD_KM = 5;
+
+interface PriceCalculatorState {
+  distance: string;
+  isRainy: boolean;
+  isEarlyMorning: boolean;
+}
+
+interface PriceBreakdown {
+  basePrice: number;
+  weatherFee: number;
+  timeFee: number;
+}
+
+// Parse distance that supports both comma and dot as decimal separator
+function parseDistance(value: string): number {
+  // Replace comma with dot for parsing
+  const normalized = value.replace(",", ".");
+  const parsed = parseFloat(normalized);
+  return isNaN(parsed) ? 0 : parsed;
+}
+
 export function usePriceCalculator() {
   const [state, setState] = useState<PriceCalculatorState>({
-    serviceType: "antar-jemput",
     distance: "",
     isRainy: false,
     isEarlyMorning: false,
   });
 
-  const setServiceType = (type: ServiceType) => {
-    setState((prev) => ({ ...prev, serviceType: type }));
-  };
-
   const setDistance = (distance: string) => {
-    setState((prev) => ({ ...prev, distance }));
+    // Allow numbers, dot, and comma
+    const sanitized = distance.replace(/[^0-9.,]/g, "");
+    setState((prev) => ({ ...prev, distance: sanitized }));
   };
 
   const setIsRainy = (isRainy: boolean) => {
@@ -46,38 +61,42 @@ export function usePriceCalculator() {
     setState((prev) => ({ ...prev, isEarlyMorning: !prev.isEarlyMorning }));
   };
 
-  const result: PriceCalculatorResult = useMemo(() => {
-    const distanceNum = parseFloat(state.distance) || 0;
+  const result = useMemo(() => {
+    const distanceKm = parseDistance(state.distance);
 
-    // Calculate base price (1000 meter = Rp 2.500, so 1 meter = Rp 2.5)
-    let basePrice = distanceNum * PRICE_PER_METER;
+    // Calculate base price with tiered pricing
+    // Under 5km: distance x 2.5k
+    // 5km and above: distance x 2.4k
+    let basePrice: number;
+    if (distanceKm < TIER_THRESHOLD_KM) {
+      basePrice = distanceKm * PRICE_PER_KM_UNDER_5;
+    } else {
+      basePrice = distanceKm * PRICE_PER_KM_OVER_5;
+    }
 
     // Apply minimum price
-    if (basePrice < MINIMUM_PRICE) {
+    if (basePrice < MINIMUM_PRICE && distanceKm > 0) {
       basePrice = MINIMUM_PRICE;
     }
 
     // Calculate fees
-    const serviceFee = state.serviceType === "jastip" ? JASTIP_FEE : 0;
     const weatherFee = state.isRainy ? RAINY_FEE : 0;
     const timeFee = state.isEarlyMorning ? EARLY_MORNING_FEE : 0;
 
-    const estimatedPrice = basePrice + serviceFee + weatherFee + timeFee;
+    const estimatedPrice = basePrice + weatherFee + timeFee;
 
     return {
       estimatedPrice,
       breakdown: {
         basePrice,
-        serviceFee,
         weatherFee,
         timeFee,
-      },
+      } as PriceBreakdown,
     };
   }, [state]);
 
   return {
     ...state,
-    setServiceType,
     setDistance,
     setIsRainy,
     setIsEarlyMorning,
@@ -87,4 +106,6 @@ export function usePriceCalculator() {
     priceBreakdown: result.breakdown,
   };
 }
+
+
 

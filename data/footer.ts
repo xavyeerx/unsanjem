@@ -14,7 +14,6 @@ export const footerSections: FooterSection[] = [
     title: "Services",
     links: [
       { label: "Antar Jemput", href: "#services" },
-      { label: "Jasa Titip", href: "#services" },
       { label: "Survei Kost", href: "#services" },
       { label: "Urus Berkas", href: "#services" },
     ],

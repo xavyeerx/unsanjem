@@ -10,24 +10,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UNS Anjem - Antar Jemput & Jastip Mahasiswa UNS",
+  title: "UNS Anjem - Antar Jemput Mahasiswa UNS",
   description:
-    "Solusi mobilitas & jastipan terpercaya untuk mahasiswa UNS. Pesan antar jemput dan jastip dengan mudah hanya melalui satu chat.",
+    "Solusi mobilitas terpercaya untuk mahasiswa UNS. Pesan antar jemput dengan mudah hanya melalui satu chat.",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/icon-light-32x32.png",
     apple: "/apple-icon.png",
   },
 };

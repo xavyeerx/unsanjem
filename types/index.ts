@@ -15,7 +15,7 @@ export interface Service {
   category: ServiceCategory;
 }
 
-export type ServiceCategory = "anjem" | "jastip" | "survei" | "berkas";
+export type ServiceCategory = "anjem" | "survei" | "berkas";
 
 export interface ServiceTab {
   id: string;
@@ -76,23 +76,5 @@ export interface TutorialStep {
   };
 }
 
-// Price Calculator Types
-export type ServiceType = "antar-jemput" | "jastip";
 
-export interface PriceCalculatorState {
-  serviceType: ServiceType;
-  distance: string;
-  isRainy: boolean;
-  isEarlyMorning: boolean;
-}
-
-export interface PriceCalculatorResult {
-  estimatedPrice: number;
-  breakdown: {
-    basePrice: number;
-    serviceFee: number;
-    weatherFee: number;
-    timeFee: number;
-  };
-}
 
